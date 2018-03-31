@@ -93,12 +93,12 @@ public:
 	        root->left =  leftRotate(root->left);
 	        return rightRotate(root);
 	    }
-	    if (balance < -1 && value > root->left->data)
+	     if (balance < -1 && val < root->right->val)
 	    {
-	        root->left =  leftRotate(root->left);
-	        return rightRotate(root);
+	        root->right =  rightRotate(root->right);
+	        return leftRotate(root);
 	    }
-	    count++;
+	   count++;
 	    return root;
 	}
 	node* search(node* root,int value)
