@@ -1,25 +1,26 @@
-// This file contains the definition of our self-defined myBst class, wherein a Binary Search Tree is implemented via nodes and pointers.
-#include<bits/stdc++.h>
-struct node
+// This file contains the definition of our self-defined myBst class, wherein a Binary Search Tree is implemented via nodeBsts and pointers.
+
+struct nodeBst
 {
 	int data;
-	node* left;
-	node* right;
-	node(int val)
+	nodeBst* left;
+	nodeBst* right;
+	nodeBst(int val)
 	{
 		data=val;
 		left=NULL;
 		right=NULL;
 	}
 };
+
 class myBst
 {
 private:
 
-	node* root;
+	nodeBst* root;
 	int count;
 
-	int minHelper(node* root)
+	int minHelper(nodeBst* root)
 	{
 		while(root->left!=NULL)
 		{
@@ -28,7 +29,7 @@ private:
 		return root->data;
 	}
 
-	node* deleteHelper(node* root,int x)
+	nodeBst* deleteHelper(nodeBst* root,int x)
 	{
 		if(root->data==x)
 		{
@@ -72,40 +73,70 @@ public:
 	}
 	void insert(int x)
 	{
-		node* temp=new node(x);
+		nodeBst* temp=new nodeBst(x);
 		count++;
 		if(count==1)
 		{
 			root=temp;
 			return;
 		}
-		node* curnode=root;
+		nodeBst* curnodeBst=root;
 		while(1)
 		{
-			if(curnode->data>x)
+			if(curnodeBst->data>x)
 			{
-				if(curnode->left!=NULL)
-					curnode=curnode->left;
+				if(curnodeBst->left!=NULL)
+					curnodeBst=curnodeBst->left;
 				else
 				{
-					curnode->left=temp;
+					curnodeBst->left=temp;
 					break;
 				}
 			}
 			else
 			{
-				if(curnode->right!=NULL)
-					curnode=curnode->right;
+				if(curnodeBst->right!=NULL)
+					curnodeBst=curnodeBst->right;
 				else
 				{
-					curnode->right=temp;
+					curnodeBst->right=temp;
 					break;
 				}
 			}
 		}
 		
 	}
-
+	
+	int search(int value)
+	{
+		if(root==NULL)
+			return -1;
+		nodeBst* curnodeBst=root;
+		while(1)
+		{
+			if(curnodeBst->data==value)
+				return 1;
+			else if(curnodeBst->data<value)
+			{
+				if(curnodeBst->right!=NULL)
+					curnodeBst=curnodeBst->right;
+				else
+					break;
+			}
+			else if(curnodeBst->data > value)
+			{
+				if(curnodeBst->left!=NULL)
+					curnodeBst=curnodeBst->left;
+				else
+					break;
+			}
+			else 
+			{
+				return 1;
+			}
+		}
+		return -1;
+	}
 
 	int top()
 	{

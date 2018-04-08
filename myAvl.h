@@ -1,6 +1,5 @@
 // This file contains the definition of our self-defined myAvl class, wherein an AVL Tree is implemented via nodes and pointers.
-#include<bits/stdc++.h>
-using namespace std;
+
 struct node
 {
 	node* left;
@@ -15,16 +14,13 @@ struct node
 		height=1;
 	}
 };
-class myAvl( )
+
+class myAvl
 {
-private: node* root;
-		int count;
-public:
-	myAvl()
-	{
-		root=NULL;
-		count=0;
-	}
+private: 
+	node* root;
+	int count;
+	
 	int height(node* a)
 	{
 		if(a==NULL)
@@ -61,75 +57,6 @@ public:
 		if(a==NULL)
 			return 0;
 		return (height(a->left)-height(a->right));
-	}
-	node* insert(node* a,int value)
-	{
-		if(root==NULL)
-		{
-			root->data=value;
-			count++;
-			return root;
-		}
-		if(value<root->data)
-		{
-			root->left=insert(root->left,value);
-		}
-		else 
-		{
-			root->right=insert(root->right,value);
-		}
-		int balance=getBalance(root);
-
-		if(balance > 1 && value < root->left->data)
-		{
-			return rightRotate(root);
-		}
-		 if(balance < -1 && value > root->right->data)
-		{
-			return leftRotate(root);
-		}
-		 if (balance > 1 && value > root->left->data)
-	    {
-	        root->left =  leftRotate(root->left);
-	        return rightRotate(root);
-	    }
-	     if (balance < -1 && val < root->right->val)
-	    {
-	        root->right =  rightRotate(root->right);
-	        return leftRotate(root);
-	    }
-	   count++;
-	    return root;
-	}
-	node* search(node* root,int value)
-	{
-		if(root==NULL)
-			return NULL;
-		node* curnode=root;
-		while(1)
-		{
-			if(curnode->data==value)
-				return root;
-			else if(curnode->data<value)
-			{
-				if(curnode->right!=NULL)
-					curnode=curnode->right;
-				else
-					break;
-			}
-			else if(curnode->data > value)
-			{
-				if(curnode->left!=NULL)
-					curnode=curnode->left;
-				else
-					break;
-			}
-			else 
-			{
-				return curnode;
-			}
-		}
-		return NULL;
 	}
 	int minm(node* root)
 	{
@@ -168,13 +95,102 @@ public:
 		}
 		return root;
 	}
-	int size(node* root)
+
+	node* insertHelper(node* root,int value)
+	{
+		if(root==NULL)
+		{
+			root->data=value;
+			count++;
+			return root;
+		}
+		if(value<root->data)
+		{
+			root->left=insertHelper(root->left,value);
+		}
+		else 
+		{
+			root->right=insertHelper(root->right,value);
+		}
+		int balance=getBalance(root);
+
+		if(balance > 1 && value < root->left->data)
+		{
+			return rightRotate(root);
+		}
+		 if(balance < -1 && value > root->right->data)
+		{
+			return leftRotate(root);
+		}
+		 if (balance > 1 && value > root->left->data)
+		{
+			root->left =  leftRotate(root->left);
+			return rightRotate(root);
+		}
+		if (balance < -1 && value < root->right->data)
+		{
+			root->right =  rightRotate(root->right);
+			return leftRotate(root);
+		}
+		count++;
+		return root;
+	}
+
+public:
+	myAvl()
+	{
+		root=NULL;
+		count=0;
+	}
+
+	void insert(int val)
+	{
+		root = insertHelper(root, val);
+	}
+
+	int search(int value)
+	{
+		if(root==NULL)
+			return -1;
+		node* curnode=root;
+		while(1)
+		{
+			if(curnode->data==value)
+				return 1;
+			else if(curnode->data<value)
+			{
+				if(curnode->right!=NULL)
+					curnode=curnode->right;
+				else
+					break;
+			}
+			else if(curnode->data > value)
+			{
+				if(curnode->left!=NULL)
+					curnode=curnode->left;
+				else
+					break;
+			}
+			else 
+			{
+				return 1;
+			}
+		}
+		return -1;
+	}
+	
+	void deletex(int val)
+	{
+		root = deletef(root, val);
+	}
+	
+	int size()
 	{
 		return count;
 	}
-	int top(node* root)
+	int top()
 	{
 		return root->data;
 	}
-}
+};
 

@@ -12,6 +12,11 @@ public:
 		n=0;
 	}
 
+	int empty()
+	{
+		return (n==0);
+	}
+
 	int size()
 	{
 		return n;

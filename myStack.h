@@ -16,6 +16,10 @@ public:
 		return top1+1;
 	}
 
+	int empty()
+	{
+		return (top1+1==0);
+	}
 
 	void push(int x)
 	{

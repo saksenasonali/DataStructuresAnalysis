@@ -16,6 +16,11 @@ public:
 		n=100005;
 	}
 
+	int empty()
+	{
+		return (n==0);
+	}
+
 	int size()
 	{
 		if(rear==-1)
