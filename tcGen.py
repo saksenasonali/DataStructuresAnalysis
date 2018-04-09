@@ -4,7 +4,7 @@ import random
 from random import randint 
 from random import shuffle
 
-n = 20000
+n = 10000
 
 print n/2, n, n/2
 

@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <stdio.h>
+#include <iomanip>
 #include "arraySortedTest.h"
 #include "arrayUnsortedTest.h"
 #include "heapTest.h"
@@ -20,10 +21,11 @@ int main()
 {
 	int choice;
 	cout<<"Enter the size of your data set to run the analysis :- \n";
-	cout << "1. Very small data set (10 inputs). \n";
-	cout << "2. Small data set (100 inputs). \n";
-	cout << "3. Medium set (1000 inputs). \n";
-	cout << "4. Large data set (10,000 inputs). \n";
+	cout << "1. Small data set (10 inputs). \n";
+	cout << "2. Medium data set (100 inputs). \n";
+	cout << "3. Large data set (1000 inputs). \n";
+	cout << "4. Very Large data set (5000 inputs). \n";
+
 	cout << "Please enter your choice : ";
 	cin >> choice;
 
@@ -31,13 +33,13 @@ int main()
 
 	switch(choice)
 	{
-		case 1:	freopen("vsmallIn.txt", "r", stdin);
+		case 1:	freopen("smallIn.txt", "r", stdin);
 				break;
-		case 2:	freopen("smallIn.txt", "r", stdin);
+		case 2:	freopen("mediumIn.txt", "r", stdin);
 				break;
-		case 3:	freopen("mediumIn.txt", "r", stdin);
+		case 3:	freopen("largeIn.txt", "r", stdin);
 				break;
-		case 4:	freopen("largeIn.txt", "r", stdin);
+		case 4: freopen("vLargeIn.txt", "r", stdin);
 				break;
 	}
 
@@ -47,6 +49,8 @@ int main()
 
 	for(int i=0; i<count_add + count_search + count_del; i++)
 		cin >> inp[i];
+
+	cout << setprecision(9);
 
 	unsortedArrayTest(inp, count_add, count_search, count_del);
 	sortedArrayTest(inp, count_add, count_search, count_del);
