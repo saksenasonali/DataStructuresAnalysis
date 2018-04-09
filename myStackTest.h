@@ -18,7 +18,7 @@ void myStackTest(int inp[], int count_add, int count_search, int count_del)
 		{
 			if(st.top() == inp[i+count_add])
 			{
-				cout << "YES\n";
+				//cout << "YES\n";
 				break;
 			}
 			temp.push(st.top());
@@ -26,7 +26,9 @@ void myStackTest(int inp[], int count_add, int count_search, int count_del)
 		}
 
 		if(st.size()==0)
-			cout << "NO\n";
+		{
+			//cout << "NO\n";
+		}
 
 		while(!temp.empty())
 		{
@@ -54,4 +56,7 @@ void myStackTest(int inp[], int count_add, int count_search, int count_del)
 			temp.pop();
 		}
 	}
+
+
+	cout << "Self-defined Stack done !\n";
 }

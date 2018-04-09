@@ -1,12 +1,13 @@
 // This file tests the generated input by implementing it in a Sorted Array.
 
 #include <iostream>
+#include <stdio.h>
 using namespace std;
 
 int binarySearchIns(int arr[],int size,int val)
 {
 	int l=0;
-	int u=arr[size-1];
+	int u=size-1;
 	while(l < u)
 	{
 		int mid=(l+u)/2;
@@ -24,7 +25,7 @@ int binarySearchIns(int arr[],int size,int val)
 int binarySearch(int arr[],int size,int val)
 {
 	int l=0;
-	int u=arr[size-1];
+	int u=size-1;
 	while(l < u)
 	{
 		int mid=(l+u)/2;
@@ -44,7 +45,6 @@ void sortedArrayTest( int inp[], int count_add, int count_search, int count_del 
 {
 	int arr[count_add];
 
-
 	for(int i=0; i<count_add; i++)
 	{
 		int j=binarySearchIns(arr,i,inp[i]);
@@ -60,10 +60,12 @@ void sortedArrayTest( int inp[], int count_add, int count_search, int count_del 
 		int flag=binarySearch(arr,count_add,inp[count_add+i]);
 		if(flag!=-1)
 		{
-			cout << "YES\n";
+			//cout << "YES\n";
 		}
 		else
-			cout << "NO\n";
+		{
+			//cout << "NO\n";
+		}
 	}
 
 	for(int i=0; i<count_del; i++)
@@ -74,4 +76,6 @@ void sortedArrayTest( int inp[], int count_add, int count_search, int count_del 
 			arr[k] = arr[k+1];
 		count_add--;
 	}
+
+	cout << "Sorted array done !\n";
 }

@@ -19,14 +19,16 @@ void heapTest(int inp[], int count_add, int count_search, int count_del)
 		{
 			if(que.top() == inp[i+count_add])
 			{
-				cout << "YES\n";
+				//cout << "YES\n";
 			}
 			temp.push(que.top());
 			que.pop();
 		}
 
 		if(que.size()==0)
-			cout << "NO\n";
+		{
+			//cout << "NO\n";
+		}
 
 		que = temp;
 	}
@@ -46,4 +48,6 @@ void heapTest(int inp[], int count_add, int count_search, int count_del)
 
 		que = temp;
 	}
+
+	cout << "Heap STL done !\n";
 }

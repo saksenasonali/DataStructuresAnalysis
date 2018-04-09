@@ -12,6 +12,8 @@ void queueTest(int inp[], int count_add, int count_search, int count_del)
 	for(int i=0; i<count_add; i++)
 		que.push(inp[i]);
 
+	cout << "Done!\n";
+
 	for(int i=0; i<count_search; i++)
 	{
 		queue<int> temp;
@@ -19,16 +21,22 @@ void queueTest(int inp[], int count_add, int count_search, int count_del)
 		{
 			if(que.front() == inp[i+count_add])
 			{
-				cout << "YES\n";
+				//cout << "YES\n";
 			}
 			temp.push(que.front());
 			que.pop();
 		}
 
 		if(que.size()==0)
-			cout << "NO\n";
+		{
+			//cout << "NO\n";
+		}
 
-		que = temp;
+		while(!temp.empty())
+		{
+			que.push(temp.front());
+			temp.pop();
+		}
 	}
 
 	for(int i=0; i<count_del; i++)
@@ -44,6 +52,10 @@ void queueTest(int inp[], int count_add, int count_search, int count_del)
 			que.pop();
 		}
 
-		que = temp;
+		while(!temp.empty())
+		{
+			que.push(temp.front());
+			temp.pop();
+		}
 	}
 }	

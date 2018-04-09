@@ -13,15 +13,20 @@ void setTest(int inp[], int count_add, int count_search, int count_del)
 		int ans = mySet.count(inp[count_add + i]);
 		if( ans==0)
 		{
-			cout<<"NO"<<endl;
+			//cout<<"NO"<<endl;
 		}
 		else
-			cout<<"YES"<<endl;
+		{
+			//cout<<"YES"<<endl;
+		}
 	}
 
 	for(int i =0; i< count_del;i++)
 	{
 		mySet.erase(inp[count_add + count_search + i]);
 	}
+
+
+	cout << "Set STL done !\n";
 
 }

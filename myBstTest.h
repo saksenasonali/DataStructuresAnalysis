@@ -13,10 +13,12 @@ void bstTest( int inp[], int count_add, int count_search, int count_del )
 		int ans = bst.search(inp[count_add + i]);
 		if( ans==-1)
 		{
-			cout<<"NO"<<endl;
+			//cout<<"NO"<<endl;
 		}
 		else
-			cout<<"YES"<<endl;
+		{
+			//cout<<"YES"<<endl;
+		}
 
 	}
 
@@ -24,4 +26,6 @@ void bstTest( int inp[], int count_add, int count_search, int count_del )
 	{
 		bst.deletex(inp[count_add + count_search + i]);
 	}
+
+	cout << "Binary Search Tree done !\n";
 }

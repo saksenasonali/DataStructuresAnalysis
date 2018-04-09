@@ -1,6 +1,7 @@
 // This file tests the generated input by implementing it as an Unsorted Array.
 
 #include <iostream>
+#include <stdio.h>
 using namespace std;
 
 void unsortedArrayTest( int inp[], int count_add, int count_search, int count_del )
@@ -17,12 +18,14 @@ void unsortedArrayTest( int inp[], int count_add, int count_search, int count_de
 		{
 			if(arr[j]==inp[i+count_add])
 			{
-				cout << "YES\n";
+				//cout << "YES\n";
 				break;
 			}
 		}
 		if(j==count_add)
-			cout << "NO\n";
+		{
+			//cout << "NO\n";
+		}
 	}
 
 	for(int i=0; i<count_del; i++)
@@ -38,4 +41,6 @@ void unsortedArrayTest( int inp[], int count_add, int count_search, int count_de
 			}
 		}
 	}
+
+	cout << "Unsorted array done !\n";
 }

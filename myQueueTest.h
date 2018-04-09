@@ -19,16 +19,22 @@ void myQueueTest(int inp[], int count_add, int count_search, int count_del)
 		{
 			if(que.top() == inp[i+count_add])
 			{
-				cout << "YES\n";
+				//cout << "YES\n";
 			}
 			temp.push(que.top());
 			que.pop();
 		}
 
 		if(que.size()==0)
-			cout << "NO\n";
+		{
+			//cout << "NO\n";
+		}
 
-		que = temp;
+		while(!temp.empty())
+		{
+			que.push(temp.top());
+			temp.pop();
+		}
 	}
 
 	for(int i=0; i<count_del; i++)
@@ -44,6 +50,13 @@ void myQueueTest(int inp[], int count_add, int count_search, int count_del)
 			que.pop();
 		}
 
-		que = temp;
+		while(!temp.empty())
+		{
+			que.push(temp.top());
+			temp.pop();
+		}
 	}
+
+
+	cout << "Self-defined Queue done !\n";
 }

@@ -18,7 +18,7 @@ public:
 
 	int empty()
 	{
-		return (n==0);
+		return (front!=-1);
 	}
 
 	int size()

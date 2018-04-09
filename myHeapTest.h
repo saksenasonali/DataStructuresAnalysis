@@ -14,7 +14,7 @@ void myHeapTest(int inp[], int count_add, int count_search, int count_del)
 		{
 			if(heap.top() == inp[i+count_add])
 			{
-				cout << "YES\n";
+				//cout << "YES\n";
 				break;
 			}
 			temp.insert(heap.top());
@@ -22,7 +22,9 @@ void myHeapTest(int inp[], int count_add, int count_search, int count_del)
 		}
 
 		if(heap.size()==0)
-			cout << "NO\n";
+		{
+			//cout << "NO\n";
+		}
 
 		while(temp.size() > 0)
 		{
@@ -50,4 +52,7 @@ void myHeapTest(int inp[], int count_add, int count_search, int count_del)
 			temp.remove_min();
 		}
 	}
+
+
+	cout << "Self-defined Heap done !\n";
 }
